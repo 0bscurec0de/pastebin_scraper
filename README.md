@@ -6,7 +6,7 @@ Simple library to interact with the Pastebin's scraping API.
 
 To install this library just run the follwoing command:
 
-```python
+```
 pip install git+ssh://git@github.com/0bscurec0de/pastebin_scraper.git
 ```
 ## Example usage
