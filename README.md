@@ -40,3 +40,4 @@ scrapper.get_supported_languages()
     * Get list of last pastes
     * Get pastes' metadata and content
     * Download pastes to disk
+    * Python 2 and 3 compatible
