@@ -27,7 +27,7 @@ scrapper.get_paste_raw(paste_key='paste_key')
 scrapper.get_paste_metadata(paste_key='paste_key')
 
 # Download paste
-scrapper.download_paste(paste_key='paste_key', file_path='/path/to/save/')
+scrapper.download_paste(paste_key='paste_key', file_path='/path/to/file.txt')
 
 # Get supported languages
 scrapper.get_supported_languages()
