@@ -1,7 +1,9 @@
 import os
 from json.decoder import JSONDecodeError
 from urllib.parse import urljoin
+
 from requests import session
+from requests.models import Response
 
 from pastebin_scraper.constraints import SUPPORTED_LANGUAGES
 
@@ -20,7 +22,7 @@ class Pastebin(object):
         }
 
     @staticmethod
-    def __api_check(response, *args, **kwargs):
+    def __api_check(response: Response, *args, **kwargs):
         """
         Session Hook, validate if the response is correct or not
 
@@ -39,7 +41,7 @@ class Pastebin(object):
         return SUPPORTED_LANGUAGES
 
     @staticmethod
-    def __save_file(file_path, buffer):
+    def __save_file(file_path: str, buffer: str):
         """
         Save file to disk
 
@@ -50,7 +52,7 @@ class Pastebin(object):
         with open(file_path, 'w') as f:
             f.write(buffer)
 
-    def __query(self, url_pattern):
+    def __query(self, url_pattern: str):
         """
         Connects Pastebin API
 
@@ -64,7 +66,7 @@ class Pastebin(object):
         except JSONDecodeError:
             return response.text
 
-    def get_pastes_list(self, limit=0, language=''):
+    def get_pastes_list(self, limit: int=0, language: str=''):
         """
         Get list of last reported pastes
 
@@ -85,7 +87,7 @@ class Pastebin(object):
         else:
             raise ValueError('Wrong options were provided')
 
-    def get_paste_raw(self, paste_key):
+    def get_paste_raw(self, paste_key: str):
         """
         Get paste's content (on memory)
 
@@ -94,7 +96,7 @@ class Pastebin(object):
         """
         return self.__query('api_scrape_item.php?i={}'.format(paste_key))
 
-    def get_paste_metadata(self, paste_key):
+    def get_paste_metadata(self, paste_key: str):
         """
         Get paste's metadata
 
@@ -103,7 +105,7 @@ class Pastebin(object):
         """
         return self.__query('api_scrape_item_meta.php?i={}'.format(paste_key))[0]
 
-    def download_paste(self, paste_key, file_path):
+    def download_paste(self, paste_key: str, file_path: str):
         """
         Get paste's content (on disk)
 

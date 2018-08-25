@@ -1,6 +1,6 @@
 # Pastebin Scraper
 
-Simple library to interact with the Pastebin's scraping API.
+Simple library to interact with the Pastebin's scraping API for Python 3.
 
 ## Installation
 
@@ -40,4 +40,3 @@ scrapper.get_supported_languages()
     * Get list of last pastes
     * Get pastes' metadata and content
     * Download pastes to disk
-    * Python 2 and 3 compatible
